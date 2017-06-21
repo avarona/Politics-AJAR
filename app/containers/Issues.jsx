@@ -5,7 +5,7 @@ import ContentAdd from 'material-ui/svg-icons/content/add';
 import { MdHighlightRemove } from 'react-icons/lib/md';
 
 import Issue from '../components/Issue.jsx';
-import {modifyIncludedIssue, modifyScoreAndWeight, addIssue, issueChange, scoreChange, deleteIssue, stateChange, hideState, scorePoliticiansChange, getScores} from '../ducks/issues'
+import {modifyIncludedIssue, modifyScoreAndWeight, addIssue, issueChange, scoreChange, deleteIssue, stateChange, hideState, scorePoliticiansChange, getScores} from '../ducks/issues.jsx';
 
 const styles = {
   delete: {
@@ -165,37 +165,37 @@ const mapStateToProps = ({issues, issueValues, issueNumber, states, selectedStat
 const mapDispatchToProps = (dispatch) => ({
   addIssue(){
     dispatch(addIssue())
-    dispatch(getScores())  
+    dispatch(getScores())
   },
   issueChange(index, value){
     dispatch(issueChange(index, value))
-    dispatch(getScores())  
+    dispatch(getScores())
   },
   modifyIssue(issueId, linkId){
     dispatch(modifyIncludedIssue(issueId, linkId))
     dispatch(scorePoliticiansChange())
-    dispatch(getScores())    
+    dispatch(getScores())
   },
   scoreChange(index, value){
     dispatch(scoreChange(index, value))
-    dispatch(getScores())  
+    dispatch(getScores())
   },
   removeIssue(issueId, linkId) {
     dispatch(deleteIssue(issueId, linkId))
-    dispatch(getScores())  
+    dispatch(getScores())
   },
   stateChange(state) {
     dispatch(stateChange(state))
     dispatch(scorePoliticiansChange())
-    dispatch(getScores())    
+    dispatch(getScores())
   },
   hideState(){
     dispatch(hideState())
-    dispatch(getScores())  
+    dispatch(getScores())
   },
   changeScore(itemValue, value) {
     dispatch(modifyScoreAndWeight(itemValue, value))
-    dispatch(getScores())  
+    dispatch(getScores())
   }
 })
 

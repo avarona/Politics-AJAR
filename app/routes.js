@@ -1,11 +1,11 @@
 import React from 'react';
 import { Router, Route, browserHistory, IndexRedirect } from 'react-router';
 
-import App from './components/App';
-import PoliticianProfile from './containers/PoliticianProfile';
-import DisplayAndPoliticians from './containers/DisplayAndPoliticians'
-import Homepage from './containers/Homepage'
-import About from './containers/About'
+import App from './components/App.jsx';
+import PoliticianProfile from './containers/PoliticianProfile.jsx';
+import DisplayAndPoliticians from './containers/DisplayAndPoliticians.jsx';
+import Homepage from './containers/Homepage.jsx';
+import About from './containers/About.jsx';
 
 let indexRedirectTarget = '/home';
 if (sessionStorage.state){

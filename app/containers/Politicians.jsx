@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Politician from '../components/Politician.jsx';
 import { GridList, GridTile } from 'material-ui';
+
+import Politician from '../components/Politician.jsx';
 
 const styles = {
   root: {

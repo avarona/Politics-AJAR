@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 import Sidebar from 'react-sidebar';
 import { FlatButton, AppBar } from 'material-ui';
-import Issues from './Issues';
+
+import Issues from './Issues.jsx';
 
 const buttonStyle = {
 	textAlign: 'center',

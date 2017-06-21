@@ -1,12 +1,13 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import { Link } from 'react-router';
 import { DropDownMenu, MenuItem, FloatingActionButton, FlatButton, AppBar} from 'material-ui';
 import ContentAdd from 'material-ui/svg-icons/content/add';
 import { FaMinusCircle } from 'react-icons/lib/fa';
-import { Link } from 'react-router';
+
 import Issue from '../components/Issue.jsx';
-import {modifyIncludedIssue, modifyScoreAndWeight, addIssue, issueChange, scoreChange, stateChange, hideState, scorePoliticiansChange, getScores } from '../ducks/issues';
-import QuotesComponent from '../components/Quotes.jsx'
+import { modifyIncludedIssue, modifyScoreAndWeight, addIssue, issueChange, scoreChange, stateChange, hideState, scorePoliticiansChange, getScores } from '../ducks/issues.jsx';
+import QuotesComponent from '../components/Quotes.jsx';
 
 let imgUrl = 'http://static2.businessinsider.com/image/577548084321f171088b5334-1190-625/the-story-of-the-only-man-who-signed-the-declaration-of-independence-and-recanted-his-signature.jpg';
 
@@ -94,7 +95,7 @@ class Homepage extends Component {
            <Issue
              value={issueValues[i].slidebar}
              handleChange={(evt, newValue) => this.handleChange(i, newValue)}
-             style={styles.description} 
+             style={styles.description}
            />
            </div>
 
@@ -128,25 +129,25 @@ class Homepage extends Component {
       iconElementRight={<Link to="/about"><FlatButton label="About" style={{color:'#000b63', fontSize: 30, fontWeight: 'bold'}} /></Link>}
       />
 
-      	<h1 style={styles.title}> POLITICS AJAR </h1> 
-        <h2 style={styles.title2} > A gateway into US Politics </h2> 
+      	<h1 style={styles.title}> POLITICS AJAR </h1>
+        <h2 style={styles.title2} > A gateway into US Politics </h2>
         <div style={styles.buttonSlider} >
           { this.renderIssues() }
         </div>
 
-        {( displayState === true) ? 
+        {( displayState === true) ?
         <div style={styles.block} >
         <DropDownMenu value={selectedState} autoWidth={true} maxHeight={300} labelStyle={{color: 'white', fontWeight: 'bold', fontSize: '25px'}} onChange={(event, index, value) => this.handleStateChange(value)}  >
         <MenuItem value={'AA'} primaryText='Select your state' />
         {Object.keys(states).sort().map( (state) => <MenuItem value={state} primaryText={states[state]} key={state}  /> )}
         </DropDownMenu>
         </div>
-        : 
+        :
         null
         }
 
 
-        {(issueNumber <= 0 && selectedState !== 'AA') ? 
+        {(issueNumber <= 0 && selectedState !== 'AA') ?
 	        <FloatingActionButton
 	          mini={true}
 	          secondary={true}
@@ -154,7 +155,7 @@ class Homepage extends Component {
             style={styles.block}>
 	          <ContentAdd />
 	        </FloatingActionButton>
-          : 
+          :
           null
         }
       </div>
@@ -181,12 +182,12 @@ const mapStateToProps = ({issues, issueValues, issueNumber, states, selectedStat
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  includeOrNot(issueId, linkId){  
-    dispatch(modifyIncludedIssue(issueId, linkId)) 
+  includeOrNot(issueId, linkId){
+    dispatch(modifyIncludedIssue(issueId, linkId))
     dispatch(scorePoliticiansChange())
     dispatch(getScores())
   },
-  changeScore(issueId, score){ 
+  changeScore(issueId, score){
     dispatch(modifyScoreAndWeight(issueId, score))
     dispatch(getScores())
   },

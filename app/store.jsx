@@ -1,12 +1,12 @@
 import { createStore, applyMiddleware, compose } from 'redux'
-import rootReducer from './ducks/reducers';
-import createLogger from 'redux-logger'
-import thunkMiddleware from 'redux-thunk'
+import createLogger from 'redux-logger';
+import thunkMiddleware from 'redux-thunk';
 
+import rootReducer from './ducks/reducers.jsx';
 import { getAllPoliticians } from './ducks/politicians.jsx';
-import {getAllIssues} from './ducks/issues.jsx';
+import { getAllIssues } from './ducks/issues.jsx';
 
-import { loadState, saveState } from './sessionStorage';
+import { loadState, saveState } from './sessionStorage.js';
 import throttle from 'lodash/throttle';
 
 // logs state changes in chrome console

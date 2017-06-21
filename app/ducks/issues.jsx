@@ -1,6 +1,6 @@
 import axios from 'axios';
-import store from '../store';
-import {getPoliticians} from './politicians';
+import store from '../store.jsx';
+import {getPoliticians} from './politicians.jsx';
 
 
 /* -----------------    ACTIONS     ------------------ */
@@ -128,7 +128,7 @@ export const scorePoliticiansChange = () => {
 // 		}
 // 		console.log('politicianObject is', politicianObject);
 // 		dispatch(createPolitician(politicianObject));
-	
+
 // 	};
 // };
 

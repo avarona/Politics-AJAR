@@ -1,6 +1,6 @@
 import axios from 'axios';
-import store from '../store';
-import {getScoreForPoliticians, addScoreToPoliticians} from './issues'
+import store from '../store.jsx';
+import {getScoreForPoliticians, addScoreToPoliticians} from './issues.jsx';
 
 /* -----------------    ACTIONS     ------------------ */
 const GET_POLITICIANS = 'GET_POLITICIANS'

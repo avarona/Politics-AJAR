@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import Sidebar from 'react-sidebar';
 import { AppBar, FlatButton } from 'material-ui';
+
 import { getSinglePolitician, getPoliticianInfo, fetchPoliticianInfo  } from '../ducks/singlePolitician.jsx';
 import Profile from '../components/Profile.jsx';
 import Issues from './Issues.jsx';

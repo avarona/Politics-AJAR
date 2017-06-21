@@ -4,6 +4,7 @@ const express = require('express');
 const morgan = require('morgan');
 const { resolve } = require('path');
 const db = require('./db/models');
+const chalk = require('chalk');
 
 const app = express();
 const server = require('./server');
@@ -21,7 +22,7 @@ app.get('/*', (req, res) => res.sendFile(resolve(__dirname, 'public/index.html')
 
 // server listening!
 app.listen(process.env.PORT || 3000, () => {
-  console.log('Server is listening on port', 3000);
+  console.log('Server is listening', chalk.yellow('http://localhost:3000'));
   db.sync({force: false})
   .then(() => {
     console.log('Database is up and running');

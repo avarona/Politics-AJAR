@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
-import singlePolitician from './singlePolitician';
-import politicians, * as fromPoliticians from './politicians';
-import issues from './issues';
+import singlePolitician from './singlePolitician.jsx';
+import politicians, * as fromPoliticians from './politicians.jsx';
+import issues from './issues.jsx';
 
 const rootReducer = combineReducers({
   politicians: politicians,

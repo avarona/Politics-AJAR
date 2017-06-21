@@ -27,14 +27,14 @@ Vote.belongsTo(Member);
 Bill.hasMany(Vote);
 Vote.belongsTo(Bill);
 
-Bill.belongsToMany(Issue, {
-	as: 'issue_bills',
-	through: IssueBill
-});
-Issue.belongsToMany(Bill, {
-	as: 'issue_bills',
-	through: IssueBill
-});
+// Bill.belongsToMany(Issue, {
+// 	as: 'issue_bills',
+// 	through: IssueBill
+// });
+// Issue.belongsToMany(Bill, {
+// 	as: 'issue_bills',
+// 	through: IssueBill
+// });
 
 Cat.belongsToMany(Issue, {
 	as: 'issue_cats',

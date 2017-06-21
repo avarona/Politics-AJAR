@@ -3,14 +3,11 @@ import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import Sidebar from 'react-sidebar';
 import { FlatButton, AppBar, DropDownMenu, MenuItem } from 'material-ui';
-import Politicians from './Politicians';
-import Issues from './Issues';
-import { stateChange, scorePoliticiansChange, getScores } from '../ducks/issues';
-import { selectPoliticianByState } from '../ducks/reducers';
 
-const firstBlock = {
-
-}
+import Politicians from './Politicians.jsx';
+import Issues from './Issues.jsx';
+import { stateChange, scorePoliticiansChange, getScores } from '../ducks/issues.jsx';
+import { selectPoliticianByState } from '../ducks/reducers.jsx';
 
 const buttonStyle = {
 	textAlign: 'center',
@@ -125,7 +122,7 @@ class DisplayAndPoliticians extends Component {
 		// console.log('this.props.issues is', this.props.issues);
 		let {senateSelected, houseSelected} = this.state;
 		let sidebarContent = (
-			<div style={firstBlock}>
+			<div>
 				<div style={{textAlign: 'center'}}>
 	        <DropDownMenu value={selectedState} autoWidth={true} maxHeight={250} labelStyle={{color: 'white', fontWeight: 'bold', fontSize: '25px'}} onChange={(event, index, value) => this.handleStateChange(value)}  >
 		        <MenuItem value={'AA'} primaryText='Select State' />
