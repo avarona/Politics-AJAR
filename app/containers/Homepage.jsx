@@ -1,10 +1,14 @@
 import React, {Component} from 'react';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import { Link } from 'react-router';
-import { DropDownMenu, MenuItem, FloatingActionButton, FlatButton, AppBar} from 'material-ui';
+
+// Theme components
+import { DropDownMenu, MenuItem, FloatingActionButton, FlatButton } from 'material-ui';
 import ContentAdd from 'material-ui/svg-icons/content/add';
 import { FaMinusCircle } from 'react-icons/lib/fa';
+import { Button } from 'react-toolbox/lib/button';
 
+// App components
 import Issue from '../components/Issue.jsx';
 import { modifyIncludedIssue, modifyScoreAndWeight, addIssue, issueChange, scoreChange, stateChange, hideState, scorePoliticiansChange, getScores } from '../ducks/issues.jsx';
 import QuotesComponent from '../components/Quotes.jsx';
@@ -118,53 +122,52 @@ class Homepage extends Component {
   render() {
     const {issues, issueValues, issueNumber, states, selectedState, displayState} = this.props.issues;
     return (
-    <div  >
-    <div style={styles.homepage} >
-      <div style={styles.align} >
+      <div>
+        <div style={styles.homepage}>
+          <div style={styles.align}>
+            <AppBar
+            title = ""
+            style={{backgroundColor: 'white'}}
+            iconStyleLeft={{backgroundColor: 'white'}}
+            iconElementRight={<Link to="/about"><FlatButton label="About" style={{color:'#000b63', fontSize: 30, fontWeight: 'bold'}} /></Link>}
+            />
 
-      <AppBar
-      title = ""
-      style={{backgroundColor: 'white'}}
-      iconStyleLeft={{backgroundColor: 'white'}}
-      iconElementRight={<Link to="/about"><FlatButton label="About" style={{color:'#000b63', fontSize: 30, fontWeight: 'bold'}} /></Link>}
-      />
+            	<h1 style={styles.title}> POLITICS AJAR </h1>
+              <h2 style={styles.title2} > A gateway into US Politics </h2>
+              <div style={styles.buttonSlider} >
+                { this.renderIssues() }
+              </div>
 
-      	<h1 style={styles.title}> POLITICS AJAR </h1>
-        <h2 style={styles.title2} > A gateway into US Politics </h2>
-        <div style={styles.buttonSlider} >
-          { this.renderIssues() }
-        </div>
-
-        {( displayState === true) ?
-        <div style={styles.block} >
-        <DropDownMenu value={selectedState} autoWidth={true} maxHeight={300} labelStyle={{color: 'white', fontWeight: 'bold', fontSize: '25px'}} onChange={(event, index, value) => this.handleStateChange(value)}  >
-        <MenuItem value={'AA'} primaryText='Select your state' />
-        {Object.keys(states).sort().map( (state) => <MenuItem value={state} primaryText={states[state]} key={state}  /> )}
-        </DropDownMenu>
-        </div>
-        :
-        null
-        }
+              {( displayState === true) ?
+              <div style={styles.block} >
+              <DropDownMenu value={selectedState} autoWidth={true} maxHeight={300} labelStyle={{color: 'white', fontWeight: 'bold', fontSize: '25px'}} onChange={(event, index, value) => this.handleStateChange(value)}  >
+              <MenuItem value={'AA'} primaryText='Select your state' />
+              {Object.keys(states).sort().map( (state) => <MenuItem value={state} primaryText={states[state]} key={state}  /> )}
+              </DropDownMenu>
+              </div>
+              :
+              null
+              }
 
 
-        {(issueNumber <= 0 && selectedState !== 'AA') ?
-	        <FloatingActionButton
-	          mini={true}
-	          secondary={true}
-	          onClick={this.handleChangeIssueNumbers}
-            style={styles.block}>
-	          <ContentAdd />
-	        </FloatingActionButton>
-          :
-          null
-        }
+              {(issueNumber <= 0 && selectedState !== 'AA') ?
+      	        <FloatingActionButton
+      	          mini={true}
+      	          secondary={true}
+      	          onClick={this.handleChangeIssueNumbers}
+                  style={styles.block}>
+      	          <ContentAdd />
+      	        </FloatingActionButton>
+                :
+                null
+              }
+            </div>
+          </div>
+          <div style={styles.blocks} >
+           <QuotesComponent />
+          </div>
+
       </div>
-     </div>
-     <div style={styles.blocks} >
-     <QuotesComponent />
-     </div>
-
-     </div>
     )
   }
 }

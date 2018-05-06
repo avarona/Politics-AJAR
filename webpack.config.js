@@ -22,26 +22,23 @@ module.exports = {
           presets: ['react', 'env']
         }
       }, {
-        test: /\.(scss|sass)$/,
+        test: /\.(css|scss|sass)$/,
+        exclude: path.join(__dirname, 'node_modules/react-toolbox'),
         loader: [
-          'style-loader', // creates style nodes from JS strings
-          'css-loader', // translates CSS into CommonJS
-          'sass-loader', // compiles Sass to CSS
+          'style-loader',
+          'css-loader',
+          'sass-loader'
         ]
       }, {
-        test: /\.css$/,
-        exclude: path.join(__dirname, 'node_modules/react-toolbox'),
-        loader: 'style-loader!css-loader'
-      }, {
-        test: /\.css$/,
+        test: /\.(css|scss|sass)$/,
         include: path.join(__dirname, 'node_modules/react-toolbox'),
         use: [
+          'style-loader',
           {
             loader: 'css-loader',
-            options: {
-              modules: true
-            }
-          }
+            options: { modules: true }
+          },
+          'sass-loader'
         ]
       }
     ]
