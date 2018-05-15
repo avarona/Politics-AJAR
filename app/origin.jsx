@@ -22,10 +22,10 @@ WebFont.load({
 injectTapEventPlugin();
 
 ReactDOM.render(
-<MuiThemeProvider>
-  <Provider store={store}>
-    <Routes />
-  </Provider>
- </MuiThemeProvider>,
+  <MuiThemeProvider>
+    <Provider store={store}>
+      <Routes />
+    </Provider>
+  </MuiThemeProvider>,
   document.getElementById('origin')
 );
