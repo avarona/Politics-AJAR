@@ -13,9 +13,10 @@ import WebFont from 'webfontloader';
 
 import 'bootstrap/dist/css/bootstrap.css';
 
+
 WebFont.load({
   google: {
-    families: ['Roboto', 'Cormorant', 'Lato', ]
+    families: ['Roboto', 'Cormorant', 'Lato', 'Material Icons']
   }
 });
 

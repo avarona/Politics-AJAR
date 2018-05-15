@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router';
 
 // Theme components
-import { DropDownMenu, MenuItem, FloatingActionButton, FlatButton } from 'material-ui';
+import { AppBar, DropDownMenu, MenuItem, FloatingActionButton, FlatButton} from 'material-ui';
 import ContentAdd from 'material-ui/svg-icons/content/add';
 import { FaMinusCircle } from 'react-icons/lib/fa';
 import { Button } from 'react-toolbox/lib/button';
@@ -137,6 +137,7 @@ class Homepage extends Component {
               <div style={styles.buttonSlider} >
                 { this.renderIssues() }
               </div>
+               <Button icon='bookmark' label='I like hot dogs' accent />
 
               {( displayState === true) ?
               <div style={styles.block} >
